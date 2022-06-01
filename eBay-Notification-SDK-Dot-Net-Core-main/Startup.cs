@@ -46,7 +46,7 @@ namespace EventNotificationDotNetSDK
             services.AddScoped<IConfig, Config>();
             services.AddHttpClient<IPublicKeyClient, PublicKeyClientImpl>();
             services.AddHttpClient();
-            CredentialUtil.Load(Configuration["ClientCredentialsFile"]);
+            CredentialUtil.Load(Configuration["MyConfig:ClientCredentialsFile"]);
 
         }
 

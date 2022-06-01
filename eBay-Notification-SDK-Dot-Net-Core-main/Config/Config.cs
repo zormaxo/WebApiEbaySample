@@ -21,13 +21,15 @@ namespace EbayEventNotificationSDK
 {
     public class Config : IConfig
     {
+        public Config()        {        }
 
         public Config(IConfiguration configuration)
         {
-            this.ClientCredentialsFile = configuration["ClientCredentialsFile"];
-            this.environment = configuration["environment"];
-            this.endpoint = configuration["endpoint"];
-            this.verificationToken = configuration["verificationToken"];
+            var temp = configuration.GetSection("MyConfig").Get<Config>();
+            this.ClientCredentialsFile = temp.ClientCredentialsFile;
+            this.environment = temp.environment;
+            this.endpoint = temp.endpoint;
+            this.verificationToken = temp.verificationToken;
         }
 
         public string ClientCredentialsFile { get; set; }
